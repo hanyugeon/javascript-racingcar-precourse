@@ -1,8 +1,8 @@
 import { $ } from './utils/DOM.js'
 
-const $nameForm = $('#car-name-form');
-const $nameInput = $('#car-name');
-const $nameSubmit = $('#car-name-submit-button');
+const $nameForm = $('#car-names-form');
+const $nameInput = $('#car-names-input');
+const $nameSubmit = $('#car-names-submit');
 const $countForm = $('#game-count-form');
 const $resultForm = $('#racing-result-form');
 
@@ -17,7 +17,6 @@ function nameExecution(obj) {
   const nameAvaliable = obj.every((item) => item.length < 5 && item.length > 0);
 
   if(nameAvaliable) {
-    $countForm.style.display = 'block';
     inputCount();
     return;
   }
@@ -29,7 +28,7 @@ function nameExecution(obj) {
 }
 
 function inputCount() {
-  
+  $countForm.style.display = 'block';
 }
 
 function init() {
