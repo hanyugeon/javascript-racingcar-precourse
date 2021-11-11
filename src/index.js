@@ -1,12 +1,10 @@
-import { $ } from './utils/DOM.js'
-
-const $nameForm = $('#car-names-form');
-const $nameInput = $('#car-names-input');
-const $nameBtn = $('#car-names-submit');
-const $countForm = $('#racing-count-form');
-const $countInput = $('#racing-count-input');
-const $countBtn = $('#racing-count-submit');
-const $resultForm = $('#racing-result-form');
+const $nameForm = document.getElementById('car-names-form');
+const $nameInput = document.getElementById('car-names-input');
+const $nameBtn = document.getElementById('car-names-submit');
+const $countForm = document.getElementById('racing-count-form');
+const $countInput = document.getElementById('racing-count-input');
+const $countBtn = document.getElementById('racing-count-submit');
+const $resultForm = document.getElementById('racing-result-form');
 
 function inputName(e) {
   e.preventDefault();
