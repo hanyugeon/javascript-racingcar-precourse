@@ -1,3 +1,6 @@
+import { enableForm, disalbeForm, disableUtils } from "./utils/display-utils.js";
+import { namesValidate, countValidate, clearInput } from "./utils/input-utils.js";
+
 const $nameForm = document.getElementById('car-names-form');
 const $nameInput = document.getElementById('car-names-input');
 const $nameBtn = document.getElementById('car-names-submit');
@@ -10,19 +13,11 @@ function nameInput(e) {
   e.preventDefault();
   const carNames = $nameInput.value.split(',');
   
-  nameValidator(carNames);
-}
-
-function nameValidator(carNames) {
-  const nameValidate = carNames.every((carName) => carName.length < 5 && carName.length > 0);
-
-  if (nameValidate) {
-    $nameInput.disabled = true;
-    $nameBtn.disabled = true;
-    $countForm.style.display = 'block';
+  if (namesValidate(carNames)) {
+    disableUtils($nameInput, $nameBtn);
+    enableForm($countForm);
   } else {
-    alert("이름은 1자 이상 5자 이하만 가능합니다.");
-    $nameInput.value = "";
+    clearInput($nameInput);
   }
 }
 
@@ -30,23 +25,17 @@ function countInput(e) {
   e.preventDefault();
   const racingCount = $countInput.value;
 
-  countValidator(racingCount);
-}
-
-function countValidator(racingCount) {
-  if (racingCount < 1) {
-    alert("1이상의 자연수를 입력해 주세요.")
-    $countInput.value = "";
+  if (countValidate(racingCount)) {
+    disableUtils($countInput, $countBtn);
+    enableForm($resultForm);
   } else {
-    $countInput.disabled = true;
-    $countBtn.disabled = true;
-    $resultForm.style.display = 'block';
+    clearInput($countInput);
   }
 }
 
 function init() {
-  $countForm.style.display = 'none';
-  $resultForm.style.display = 'none';
+  disalbeForm($countForm);
+  disalbeForm($resultForm);
   $nameForm.addEventListener('submit', nameInput);
   $nameBtn.addEventListener('click', nameInput);
   $countForm.addEventListener('submit', countInput);
