@@ -1,10 +1,10 @@
 const ALERT_MESSAGES = {
   NAME_NONE_VALIDATE_ERROR: "이름을 입력해 주세요.",
-  NAME_LENGTH_VALIDATE_ERROR: "이름은 5자 이하로 입력해 주세요.",
+  NAME_LENGTH_VALIDATE_ERROR: "5자 이하로 입력해 주세요.",
   COUNT_VALIDATE_ERROR: "1이상의 자연수를 입력해 주세요."
 };
 
-export function namesValidate(carNames) {
+export function nameValidate(carNames) {
   let vailable = false;
 
   if (carNames.includes("")) {
